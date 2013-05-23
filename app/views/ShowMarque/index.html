@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>Marque</title>		
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        #{get 'moreStyles' /}	
+        <link rel="stylesheet" type="text/css" media="screen" 
+                href="@{'/public/stylesheets/main.css'}" />
+        <link rel="shortcut icon" type="image/png" 
+                href="@{'/public/images/favicon.png'}" />
+        <script src="@{'/public/javascripts/jquery-1.3.2.min.js'}"></script>
+        <script src="@{'/public/javascripts/jquery.tools.min.js'}"></script>
+    </head>
+    <body id="admin">
+        
+        <div id="header">
+            <div id="logo">
+                Telephone. <span>ALL Marque</span>
+            </div>
+        </div>
+        <ul id="tools">
+                <li>
+                        <a href="@{Admin.index()}">Admin</a>
+                </li>
+        </ul>
+        <div id="main">
+			<ul id="adminMenu">
+				<li class="">					
+							<a href="@{Application.index()}">Accueil</a>
+						<a href="@{ShowMarque.index()}">Marque</a>
+					<a href="@{ShowProduit.index()}">Nos téléphones</a>
+					<a href="@{ShowStats.index()}">Stats</a>
+				</li>
+		    </ul>	
+			<ul>
+				#{list items:listeMarque, as:'marque'}
+					<li><a href="@{ShowUneMarque.index(marque.nomMarque)}">${marque.nomMarque}</a></li>
+				#{/list}
+			</ul>
+        </div>
+        
+        <p id="footer">
+			©2013 by Prasanna PETER-ALOCIAS Sylvain LEPREGASSIN & Vikas SHARMA
+        </p>
+    </body>
+</html>

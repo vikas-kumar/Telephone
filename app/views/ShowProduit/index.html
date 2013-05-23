@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+ <script type="text/javascript">
+ <!--
+
+  function AfficherCacher(texte) 
+  {
+   var test = document.getElementById(texte).style.display;
+   if (test == "block")
+   {
+    document.getElementById(texte).style.display = "none";
+   }
+   else 
+   {
+    document.getElementById(texte).style.display = "block";
+   }
+  }
+  
+ //-->
+</script>
+ 
+        <title>Produit</title>  
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        #{get 'moreStyles' /} 
+        <link rel="stylesheet" type="text/css" media="screen" 
+                href="@{'/public/stylesheets/main.css'}" />
+        <link rel="shortcut icon" type="image/png" 
+                href="@{'/public/images/favicon.png'}" />
+        <script src="@{'/public/javascripts/jquery-1.3.2.min.js'}"></script>
+        <script src="@{'/public/javascripts/jquery.tools.min.js'}"></script>
+  
+    </head>
+    <body id="admin">
+        
+        <div id="header">
+            <div id="logo">
+                Telephone. <span>Produit</span>
+            </div>
+        </div>
+        
+        <div id="main">
+   <ul id="adminMenu">
+    <li class="">
+								<a href="@{Application.index()}">Accueil</a>
+						<a href="@{ShowMarque.index()}">Marque</a>
+					<a href="@{ShowProduit.index()}">Nos téléphones</a>
+					<a href="@{ShowStats.index()}">Stats</a>
+    </li>
+      </ul> 
+<ul>
+    
+<div>
+
+<table border><tr><th>Image</th><th>Modèle</th><th>Dimensions (mm)</th><th>Capacité (GO)</th><th>Système (OS)</th><th>Prix (€)</th><th>Commander</th></tr>
+  #{list items:listeProduit, as:'produit'}
+  *{ Display a post in one of these modes: 'full', 'home' or 'teaser' }*
+   <tr>
+   <td><img src="@{ShowProduit.getPicture(produit.id)}" WIDTH=50></td>
+   <td>${produit.modelProd}</td>
+   <td>${produit.dimensionProd}</td> 
+   <td>${produit.capaciteProd}</td>
+   <td>${produit.osProd} </td>
+   <td>${produit.prixProd}</td>
+   <td><a href="#" onclick='AfficherCacher("form"); return false'>Commander</a></td>
+   </tr>
+      #{/list}
+   </div>
+   
+
+</table>
+   
+   <div id="form" style="display:none">
+   <h7><i>Tous les champs sont obligatoires</i></h7>
+   ${message}
+   #{form @Commande.commande(produit.modelProd, produit.prixProd, produit.marque)}
+
+   <fieldset><legend>Informations à saisir</legend>
+   <table>
+   <label>Nom</label>
+   <input type="text" name = "nom">
+   </br>
+   <label>Prenom </label>
+   <input type="text" name = "prenom">
+   </br>
+   <label>Numero rue </label>
+   <input type="text" name = "numrue">
+   </br>
+   <label>Nom rue </label>
+   <input type="text" name = "nomrue">
+   </br>
+   <label>Ville </label>
+   <input type="text" name = "ville">
+   </br>
+   <label>CP </label>
+   <input type="text" name = "cp">
+   </br>
+   <label>Pays </label>
+   <input type="text" name = "pays">
+   </br>
+   <label>Telephone </label>
+   <input type="text" name = "telephone">
+   </br>
+   <label>Courriel </label>
+   <input type="text" name = "email">
+   
+  </fieldset>
+     <button type="submit" class="btn">Commander</button>
+     #{/form}
+
+</ul>
+
+</div>
+ </body>
+        <p id="footer">
+   ©2013 by Prasanna PETER-ALOCIAS Sylvain LEPREGASSIN & Vikas SHARMA
+        </p>
+        
+   
+
+ 
+ 
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>Produit</title>		
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        #{get 'moreStyles' /}	
+        <link rel="stylesheet" type="text/css" media="screen" 
+                href="@{'/public/stylesheets/main.css'}" />
+        <link rel="shortcut icon" type="image/png" 
+                href="@{'/public/images/favicon.png'}" />
+        <script src="@{'/public/javascripts/jquery-1.3.2.min.js'}"></script>
+        <script src="@{'/public/javascripts/jquery.tools.min.js'}"></script>
+		
+    </head>
+    <body id="admin">
+        
+        <div id="header">
+            <div id="logo">
+                Telephone. <span>Produit</span>
+            </div>
+        </div>
+        
+        <div id="main">
+			<ul id="adminMenu">
+				<li class="">
+								<a href="@{Application.index()}">Accueil</a>
+						<a href="@{ShowMarque.index()}">Marque</a>
+					<a href="@{ShowProduit.index()}">Nos téléphones</a>
+					<a href="@{ShowStats.index()}">Stats</a>
+				</li>
+		    </ul>	
+<ul> 
+<div>
+
+<div id="produits">
+	<h1>${produit.modelProd}</h1>
+	<ul>
+	<h3>${produit.modelProd} </h3>
+	
+	<div id="imagePosition" align="center">
+			<img src="@{ShowProduit.getPicture(produit.id)}"  border=1  width=267 	height=267 />
+	</div>		
+	
+	<div id="InfoProduit">
+	<h5>Dimension:</h5>${produit.dimensionProd}
+	<h5>Capacité:</h5>${produit.capaciteProd}
+	<h5>OS:</h5>${produit.osProd}
+	<h5>Prix Unitaire:</h5>${produit.prixProd}
+	</div>	
+	</ul>			
+</div>
+</ul>
+</div>
+        <p id="footer">
+			©2013 by Prasanna PETER-ALOCIAS Sylvain LEPREGASSIN & Vikas SHARMA
+        </p>
+        
+    </body>
+</html>
