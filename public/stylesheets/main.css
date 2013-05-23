@@ -1,7 +1,7 @@
 /** Main layout **/
 
 html, body {
-    background: #364B66 !important;
+    background: #000000 !important;
     font-family: Helvetica, Arial, Sans !important;
 }
 
@@ -94,8 +94,8 @@ body {
 /** Main content **/
 
 #main {
-    background: #314660;
-    background: -webkit-gradient(linear, left top, left 30%, from(#314660), to(#364B66));
+    background: #FFFFFF;
+    background: -webkit-gradient(linear, left top, left 30%, from(#314660), to(#FFFFFF));
     -webkit-border-radius: 16px;
     -moz-border-radius: 16px;
     padding: 20px;
@@ -258,7 +258,7 @@ h3 span {
 
 form {
     padding: 10px;
-    background: #253142;
+    background: #FFFFFF;
     background: -webkit-gradient(linear, left top, left 60%, from(#253142), to(#364B66));
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -387,7 +387,7 @@ form label {
     color: #fff;
     text-decoration: none;
     font-size: 80%;
-    background: #591C64;
+    background: #000000;
     padding: 2px 10px;
     -webkit-border-radius: 9px;
     -moz-border-radius: 9px;
