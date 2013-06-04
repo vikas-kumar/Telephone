@@ -2,6 +2,8 @@ package controllers;
 
 import java.util.*;
 
+import org.apache.commons.mail.EmailException;
+
 import com.sun.security.ntlm.Client;
 
 import play.*;
@@ -27,7 +29,7 @@ public class Commande extends Controller
 			@Required(message=" Saisir le pays") String pays,
 			@Required(message=" Saisir le téléphone") String telephone,
 			@Required(message=" Saisir le courriel") String email
-			)	
+			) throws EmailException	
 			{
 			
 				if(validation.hasErrors()) {
@@ -40,8 +42,10 @@ public class Commande extends Controller
 					models.Commande c = new models.Commande(nom, prenom, numrue, nomrue, ville, cp, pays, email, telephone, model, prix, marque,dateCommande);
 					c.save();
 					//System.out.println("Salut "+c.getPrenomCli());
-					flash.success("Votre commande est enregistrée");
+					flash.success("Votre commande est enregistrée "+c.getPrenomCli());
+					mailer.Mails.welcome(c);
 					Application.index();
+					
 				}
 			}
     
