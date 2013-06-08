@@ -8,7 +8,8 @@ GET     /                                       Application.index
 # Administration
 GET     /admin/?                                Admin.index
 *       /admin                                  module:crud
-
+# Prends variable de l'URL
+GET     /Mails/verif/{Id}                       Mails.verif
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
@@ -23,3 +24,6 @@ GET     /public/                                staticDir:public
 *       /                                       module:secure
 
 GET     /images/pie                             Charts.apie
+
+
+GET    /Application/validerId/{id}    Application.validerId

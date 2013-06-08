@@ -3,8 +3,7 @@ package mailer;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.MultiPartEmail;
 
-import controllers.Commande;
-
+import play.data.validation.Required;
 import play.mvc.Mailer;
 
 public class Mails extends Mailer {
@@ -21,5 +20,10 @@ public class Mails extends Mailer {
 		email.setMsg("Bonjour, votre commande a bien été validée.");
 		email.send();
 	   }
+	
+	public static void verif(@Required String Id)
+	{
+		System.out.println("ID = "+Id);	
+	}
 
 }

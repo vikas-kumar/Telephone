@@ -17,5 +17,11 @@ public class Application extends Controller {
     public static void index() {
         render();
     }
+    
+    public static void validerId(@Required String id) {
+    	
+    	System.out.println("id = "+id);
+    	
+    }
+    }
 	
-}
