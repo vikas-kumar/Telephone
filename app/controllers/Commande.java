@@ -1,17 +1,13 @@
 package controllers;
 
-import java.util.*;
+import java.util.Random;
+
+import models.Verifier;
 
 import org.apache.commons.mail.EmailException;
 
-import com.sun.security.ntlm.Client;
-
-import play.*;
-import play.mvc.*;
-import play.data.validation.*; 
-import models.*;
-import play.libs.*;
-import play.cache.*;
+import play.data.validation.Required;
+import play.mvc.Controller;
 
 
 public class Commande extends Controller 
@@ -41,9 +37,17 @@ public class Commande extends Controller
 					java.util.Date dateCommande = new java.util.Date(); 
 					models.Commande c = new models.Commande(nom, prenom, numrue, nomrue, ville, cp, pays, email, telephone, model, prix, marque,dateCommande);
 					c.save();
-					//System.out.println("Salut "+c.getPrenomCli());
 					flash.success("Votre commande est enregistrée "+c.getPrenomCli());
-					mailer.Mails.welcome(c);
+//					mailer.Mails.welcome(c);
+					
+					Random r = new Random();
+					int valeur = 0 + r.nextInt(100 - 0);
+					
+					models.Verifier value = new models.Verifier(valeur);
+					
+					value.save();
+					System.out.println(valeur);
+					
 					Application.index();
 					
 				}
