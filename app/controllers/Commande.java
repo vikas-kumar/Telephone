@@ -35,17 +35,18 @@ public class Commande extends Controller
 				else
 				{
 					java.util.Date dateCommande = new java.util.Date(); 
-					models.Commande c = new models.Commande(nom, prenom, numrue, nomrue, ville, cp, pays, email, telephone, model, prix, marque,dateCommande);
+					models.Commande c = new models.Commande(nom, prenom, numrue, nomrue, ville, cp, pays, email, telephone, model, prix, marque,dateCommande, false);
 					c.save();
 					flash.success("Votre commande est enregistrée "+c.getPrenomCli());
-//					mailer.Mails.welcome(c);
+
 					
 					Random r = new Random();
 					int valeur = 0 + r.nextInt(100 - 0);
 					
-					models.Verifier value = new models.Verifier(valeur);
+					models.Verifier value = new models.Verifier(valeur, c.getEmailCli());
 					
 					value.save();
+					mailer.Mails.welcome(c, valeur); 
 					System.out.println(valeur);
 					
 					Application.index();

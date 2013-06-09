@@ -41,14 +41,17 @@ public class Commande extends Model {
 	
 	public Date dateCommande;
 
+	public boolean actif;
+
+	
+
+
 
 	public Commande(String nomCli, String prenomCli, int numAdr, String nomAdr,
-			String villeAdr, String cpAdr, String paysAdr, String emailCli,
-			String telCli, String model, String prix, String marque,
-			Date dateCommande) {
+			String villeAdr, String cpAdr, String paysAdr, String telCli,
+			String emailCli, String modelProd, String prixProd, String marque,
+			Date dateCommande, boolean actif) {
 		super();
-
-
 		this.nomCli = nomCli;
 		this.prenomCli = prenomCli;
 		this.numAdr = numAdr;
@@ -56,16 +59,14 @@ public class Commande extends Model {
 		this.villeAdr = villeAdr;
 		this.cpAdr = cpAdr;
 		this.paysAdr = paysAdr;
-		this.emailCli = emailCli;
 		this.telCli = telCli;
-		this.modelProd = model;
-		this.prixProd = prix;
+		this.emailCli = emailCli;
+		this.modelProd = modelProd;
+		this.prixProd = prixProd;
 		this.marque = marque;
 		this.dateCommande = dateCommande;
+		this.actif = actif;
 	}
-
-
-
 
 
 	public String getNomCli() {
@@ -118,6 +119,18 @@ public class Commande extends Model {
 	@Override
 	public String toString() {
 		return nomCli;
+	}
+	
+
+
+
+	public boolean isActif() {
+		return actif;
+	}
+
+
+	public void setActif(boolean actif) {
+		this.actif = actif;
 	}
 	
 	

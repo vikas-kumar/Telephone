@@ -18,7 +18,19 @@ public class Application extends Controller {
         render();
     }
     
-    public static void validerId(@Required String id) {
+    public static void validerId(@Required int id) {
+    	
+    	for(Verifier verif : Verifier.<Verifier>findAll()){
+    		
+    		if (verif.getVerif() == id){
+    			System.out.println("ON RENTRE DANS LA BOUCLE");
+    		}
+    		else
+    		{
+    			System.out.println("ON NE RENTRE PAS DANS LA BOUCLE");
+    		}
+    		
+    	}
     	
     	System.out.println("id = "+id);
     	

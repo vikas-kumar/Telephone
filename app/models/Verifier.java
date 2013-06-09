@@ -1,30 +1,55 @@
 package models;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-import net.sf.oval.constraint.Email;
-
-import play.data.validation.Password;
 import play.data.validation.Required;
 import play.db.jpa.GenericModel;
-import play.db.jpa.Model;
-import javax.persistence.Id;
 
 
 @Entity
 public class Verifier extends GenericModel {
 	
 	@Id
-	public int Id;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	public Long Id;
+	
+	@Required
 	public int Verif;
 	
+	@Required
+	public String mail;
 	
-	public Verifier(int check) {
+	
+	public Verifier(int verif, String mail) {
 		super();
-		this.Verif = check;
+		Verif = verif;
+		this.mail = mail;
 	}
+
+
+	public int getVerif() {
+		return Verif;
+	}
+
+
+	public void setVerif(int verif) {
+		Verif = verif;
+	}
+
+
+	public String getMail() {
+		return mail;
+	}
+
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+	
+	
 	
 	
 
