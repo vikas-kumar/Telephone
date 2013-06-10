@@ -35,7 +35,7 @@ public class Commande extends Controller
 				else
 				{
 					java.util.Date dateCommande = new java.util.Date(); 
-					models.Commande c = new models.Commande(nom, prenom, numrue, nomrue, ville, cp, pays, email, telephone, model, prix, marque,dateCommande, false);
+					models.Commande c = new models.Commande(nom, prenom, numrue, nomrue, ville, cp, pays, telephone, email, model, prix, marque,dateCommande, false);
 					c.save();
 					flash.success("Votre commande est enregistrée "+c.getPrenomCli());
 

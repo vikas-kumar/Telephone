@@ -24,6 +24,20 @@ public class Application extends Controller {
     		
     		if (verif.getVerif() == id){
     			System.out.println("ON RENTRE DANS LA BOUCLE");
+    			
+
+    			for(models.Commande comm : models.Commande.<models.Commande>findAll())
+    			{
+    				if (comm.getEmailCli().equals(verif.getMail()))
+    				{
+    					System.out.println("Rentre dans le If");
+    					comm.setActif(true);
+    					verif.delete();
+    				} else{
+    					System.out.println("On ne rentre pas dans le If : premier:"+verif.getMail()+" deuxieme:"+comm.getEmailCli());
+    				}
+    			}
+    			
     		}
     		else
     		{

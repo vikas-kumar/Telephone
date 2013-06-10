@@ -5,8 +5,6 @@ import java.util.Date;
 import javax.persistence.Entity;
 
 import net.sf.oval.constraint.Email;
-
-import play.data.validation.Password;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
