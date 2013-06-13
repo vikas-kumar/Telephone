@@ -127,8 +127,8 @@ public class Commande extends Model {
 	}
 
 
-	public void setActif(boolean actif) {
-		this.actif = actif;
+	public void setActifTrue() {
+		this.actif = true;
 	}
 	
 	

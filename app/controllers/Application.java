@@ -31,7 +31,8 @@ public class Application extends Controller {
     				if (comm.getEmailCli().equals(verif.getMail()))
     				{
     					System.out.println("Rentre dans le If");
-    					comm.setActif(true);
+    					comm.actif = true;
+    					comm.save();
     					verif.delete();
     				} else{
     					System.out.println("On ne rentre pas dans le If : premier:"+verif.getMail()+" deuxieme:"+comm.getEmailCli());
