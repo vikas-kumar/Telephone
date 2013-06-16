@@ -4,6 +4,10 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 
+import org.joda.time.DateTime;
+
+import com.sun.jmx.snmp.Timestamp;
+
 import net.sf.oval.constraint.Email;
 import play.data.validation.Required;
 import play.db.jpa.Model;
@@ -129,6 +133,16 @@ public class Commande extends Model {
 
 	public void setActifTrue() {
 		this.actif = true;
+	}
+
+
+	public Date getDateCommande() {
+		return dateCommande;
+	}
+
+
+	public void setDateCommande(Date dateCommande) {
+		this.dateCommande = dateCommande;
 	}
 	
 	

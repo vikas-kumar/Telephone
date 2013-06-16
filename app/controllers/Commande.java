@@ -1,8 +1,7 @@
 package controllers;
 
+import java.util.Date;
 import java.util.Random;
-
-import models.Verifier;
 
 import org.apache.commons.mail.EmailException;
 
@@ -16,7 +15,8 @@ public class Commande extends Controller
         render();
     }
    
-	 public static void commande(String model,String prix,String marque,@Required(message="Saisir le nom") String nom,
+	 @Deprecated
+	public static void commande(String model,String prix,String marque,@Required(message="Saisir le nom") String nom,
 			@Required(message=" Saisir le prenom ") String prenom,
 			@Required(message=" Saisir le numéro de la rue") int numrue,
 			@Required(message=" Saisir le nom de la rue") String nomrue,
@@ -34,21 +34,22 @@ public class Commande extends Controller
 				}
 				else
 				{
-					java.util.Date dateCommande = new java.util.Date(); 
+					Date dateCommande = new Date();
 					models.Commande c = new models.Commande(nom, prenom, numrue, nomrue, ville, cp, pays, telephone, email, model, prix, marque,dateCommande, false);
 					c.save();
-					flash.success("Votre commande est enregistrée "+c.getPrenomCli());
+					flash.success("Vous allez prochainement recevoir un email. Vous avez 15 jours pour valider votre commande.");
 
 					
 					Random r = new Random();
-					int valeur = 0 + r.nextInt(100 - 0);
+					int valeur = 0 + r.nextInt(1000 - 0);
 					
 					models.Verifier value = new models.Verifier(valeur, c.getEmailCli());
 					
 					value.save();
-					mailer.Mails.welcome(c, valeur); 
-					System.out.println(valeur);
+					mailer.Mails.confirmeCommande(c, valeur);
 					
+					
+
 					Application.index();
 					
 				}
