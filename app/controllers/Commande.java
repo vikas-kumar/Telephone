@@ -36,20 +36,26 @@ public class Commande extends Controller
 				{
 					Date dateCommande = new Date();
 					models.Commande c = new models.Commande(nom, prenom, numrue, nomrue, ville, cp, pays, telephone, email, model, prix, marque,dateCommande, false);
+					
+					
+					//Enregistrement de la commande
 					c.save();
-					flash.success("Vous allez prochainement recevoir un email. Vous avez 15 jours pour valider votre commande.");
-
 					
+					
+					
+					//Création d'un nombre aléatoire
 					Random r = new Random();
-					int valeur = 0 + r.nextInt(1000 - 0);
+					int valeur = 0 + r.nextInt(1000 - 0); //Chiffre entre 0 et 1000
 					
-					models.Verifier value = new models.Verifier(valeur, c.getEmailCli());
+					//Création d'une ligne dans la table Verifier, avec l'email de la commande pour référencer la commande
+					models.Verifier value = new models.Verifier(valeur, c.getEmailCli()); 
 					
 					value.save();
+					
+					//Envoie d'un mail de confirmation
 					mailer.Mails.confirmeCommande(c, valeur);
 					
-					
-
+					flash.success("Vous allez prochainement recevoir un email. Vous avez 15 jours pour valider votre commande.");
 					Application.index();
 					
 				}
