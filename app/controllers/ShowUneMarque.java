@@ -1,15 +1,9 @@
 package controllers;
 
-import java.util.*;
+import java.util.List;
 
-import com.sun.security.ntlm.Client;
-
-import play.*;
-import play.mvc.*;
-import play.data.validation.*; 
-import models.*;
-import play.libs.*;
-import play.cache.*;
+import models.Produit;
+import play.mvc.Controller;
 
 public class ShowUneMarque extends Controller {
  

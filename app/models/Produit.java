@@ -27,10 +27,8 @@ public class Produit extends Model {
 	@Required
 	public Blob image_prod;
 
-		
-	public Produit( Marque marqueProd, String modelProd,
-			String dimensionProd, int capaciteProd, String osProd,
-			String prixProd, Blob image_prod) {
+	public Produit(Marque marqueProd, String modelProd, String dimensionProd,
+			int capaciteProd, String osProd, String prixProd, Blob image_prod) {
 		super();
 		this.marque = marqueProd;
 		this.modelProd = modelProd;
@@ -40,18 +38,15 @@ public class Produit extends Model {
 		this.prixProd = prixProd;
 		this.image_prod = image_prod;
 	}
-	
+
 	// static String getMarque()
 	// {
-		// return this.marque;
+	// return this.marque;
 	// }
-	
+
 	@Override
 	public String toString() {
-        return " Marque: "+modelProd+" "+marque.toString();
-    }
-	
-
-	
+		return " Marque: " + modelProd + " " + marque.toString();
+	}
 
 }

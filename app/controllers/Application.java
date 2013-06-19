@@ -1,18 +1,14 @@
 package controllers;
 
-import java.util.*;
+import java.util.Date;
+
+import mailer.Mails;
+import models.Verifier;
 
 import org.apache.commons.mail.EmailException;
 
-import com.sun.security.ntlm.Client;
-
-import play.*;
-import play.mvc.*;
-import play.data.validation.*; 
-import mailer.Mails;
-import models.*;
-import play.libs.*;
-import play.cache.*;
+import play.data.validation.Required;
+import play.mvc.Controller;
 
 
 public class Application extends Controller {
