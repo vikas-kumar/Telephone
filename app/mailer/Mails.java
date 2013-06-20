@@ -21,12 +21,12 @@ public class Mails extends Mailer {
 		email.setSubject("Commande "+user.modelProd);
 		email.addTo(user.getEmailCli(), user.getNomCli());
 		email.setFrom("noreply@telephone.com", "Administrateur");
-		email.setMsg("Bonjour, votre commande a bien été validée. Pour confirmer votre commande, veuillez cliquer sur le lien suivant : http://localhost:9000/Application/validerId/"+valeur);
+		email.setMsg("Bonjour, votre commande pour le téléphone "+user.marque+" "+user.modelProd+" à "+user.prixProd+" a bien été validée. Pour confirmer votre commande, veuillez cliquer sur le lien suivant : http://localhost:9000/Application/validerId/"+valeur);
 		email.send();
 	   }
 	
 	
-	//Envoie d'un mail de confirmation à l'admin d'une commande
+	//Envoie d'un mail de confirmation à l'admin (csid2013c@gmail.com)
 	public static void confirmeCommandeAdmin(Commande user) throws EmailException
 	{
 		MultiPartEmail email = new MultiPartEmail();
