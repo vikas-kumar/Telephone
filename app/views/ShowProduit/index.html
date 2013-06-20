@@ -51,7 +51,7 @@
 <ul>
     
 <div>
-
+   <a href="@{ShowDlCatalogue.index()}">Télécharger catalogue</a>
 <table border><tr><th>Image</th><th>Modèle</th><th>Dimensions (mm)</th><th>Capacité (GO)</th><th>Système (OS)</th><th>Prix (€)</th><th>Commander</th></tr>
   #{list items:listeProduit, as:'produit'}
   *{ Display a post in one of these modes: 'full', 'home' or 'teaser' }*
@@ -69,7 +69,7 @@
    
 
 </table>
-   <a href="@{ShowDlCatalogue.index()}">Télécharger catalogue</a>
+
    <div id="form" style="display:none">
    <h7><i>Tous les champs sont obligatoires</i></h7>
    ${message}

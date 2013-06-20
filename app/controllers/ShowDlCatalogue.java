@@ -65,6 +65,8 @@ public class ShowDlCatalogue extends Controller {
 
 			document.add(table);
 			document.close();
+			flash.success("Le telechargement est terminé.");
+			Application.index();
 		} catch (Exception e) {
 
 		}
